@@ -1,0 +1,15 @@
+# Dataset YOLO para el proyecto de mosquitos
+# Autor: Javi Tiscareño
+
+path: /home/francisco/Javier_Tiscareno_Proyecto/dataset
+
+train: images/train
+val: images/val
+
+# Nombres de las clases (actualízalos si tienes nombres reales)
+names:
+  0: cubeta
+  1: llanta
+  2: tinaco
+  3: maceta
+
