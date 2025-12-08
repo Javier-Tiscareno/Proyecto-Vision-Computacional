@@ -309,7 +309,9 @@ Estos parches permiten evaluar la viabilidad de usar GAN como estrategia para au
 
 ## 7. Intento de Generación Sintética con DCGAN  
 **Script:** `train_dcgan.py`
+
 **Script:** `pruebas_dcgan.py`
+
 Se entrenó una **DCGAN estándar** para generar imágenes sintéticas de clases minoritarias.
 
 Resultados:
