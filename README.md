@@ -192,3 +192,38 @@ Este paso permite cuantificar el impacto de la aumentación en clases minoritari
 
 Este pipeline refleja fielmente la estructura y metodología del proyecto, destacando la comparación entre modelos con y sin aumentación.
 
+# Requerimientos e Instalación
+
+Este proyecto utiliza Python y librerías especializadas en visión computacional y deep learning.
+Para instalar las dependencias principales, utilice el archivo requirements.txt:
+
+pip install -r requirements.txt
+
+
+Nota: El archivo requirements.txt no incluye PyTorch, ya que la versión adecuada depende de si se utilizará GPU y de la versión de CUDA instalada.
+Esto es una práctica estándar en proyectos profesionales.
+
+## Instalación de PyTorch con GPU (CUDA)
+
+Para entrenar YOLO con aceleración por GPU, instale la versión adecuada de PyTorch según su sistema.
+
+## Instalación recomendada (CUDA 12.1)
+
+Si su GPU NVIDIA soporta CUDA moderno:
+
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+
+## Alternativa (CUDA 11.8)
+
+Si su entorno utiliza drivers más antiguos:
+
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+
+✔ Verificar que PyTorch detecta la GPU
+import torch
+print(torch.cuda.is_available())
+print(torch.cuda.get_device_name(0))
+
+
+Si ambos comandos devuelven información válida, su entorno está correctamente configurado para entrenamiento acelerado.
+
