@@ -198,7 +198,7 @@ Este paso permite cuantificar el impacto de la aumentación en clases minoritari
 
 ---
 
-# 🧠 Resumen del Pipeline
+#  Resumen del Pipeline
 
 1. **División del dataset** → `split_yolo_dataset.py`  
 2. **Análisis de clases minoritarias** → `extract_objects.py`, `extract_patches_for_gan.py`  
@@ -212,7 +212,129 @@ Este pipeline refleja fielmente la estructura y metodología del proyecto, desta
 
 ---
 ---
+# Pipeline Completo del Proyecto (Versión Nano)
 
+El flujo de trabajo para la variante **YOLOv12-Nano** sigue una estructura similar al modelo Small, pero con algunos ajustes.  
+A continuación se describe el pipeline completo basado en los scripts incluidos en esta parte del repositorio.
+
+
+
+## 1. Organización y División del Dataset  
+**Script:** `split_yolo_dataset.py`
+
+- Toma las imágenes y etiquetas originales.  
+- Crea la estructura estándar requerida por YOLO:  
+  - `images/train`, `images/val`  
+  - `labels/train`, `labels/val`  
+- Aplica una división **80% entrenamiento / 20% validación**.  
+- Verifica que cada imagen tenga su archivo `.txt` correspondiente.
+
+Este paso construye el dataset base utilizado en todos los experimentos del modelo Nano.
+
+**Script:** `remap_labels_5clases_a_4.py`
+
+Para la limpieza de la base de datos 
+
+
+
+## 2. Entrenamiento del Modelo Base YOLOv12-Nano  
+**Script:** `train_yolo12.py`
+
+Entrenamiento directo sobre el dataset original .
+
+Configuración:
+
+- Arquitectura: **YOLOv12-Nano**, optimizada para velocidad y bajo consumo.  
+- Dataset definido en `data.yaml`.  
+- Hiperparámetros estándar.
+- Pesos del modelo base Nano `yolo12n.pt` (incluido en este repositorio)
+
+
+## 3. Validación del Modelo Nano  
+**Script:** `val_yolo12.py`
+
+Evalúa el desempeño del modelo entrenado utilizando el conjunto de validación.
+
+Métricas generadas:
+
+- Precision  
+- Recall  
+- mAP@50  
+- mAP@50–95  
+- Reporte por clase (incluyendo desempeño de clases minoritarias)
+
+Esto sirve como línea base para comparar con modelos futuros o variantes optimizadas.
+
+
+
+## 4. Inferencia y Pruebas con Imágenes Nuevas  
+**Script:** `predict_yolo12.py`
+
+Permite:
+
+- Cargar el modelo entrenado (`yolo12n.pt`).  
+- Ejecutar detección sobre imágenes nuevos.  
+- Guardar y visualizar predicciones con bounding boxes.
+
+Este script representa el uso práctico del modelo Nano.
+
+
+## 5. Balanceo Inicial para Clases Minoritarias  
+**Script:** `balancear_train_minorias.py`
+
+Propósito:
+
+- Detectar clases con **muy baja frecuencia**.  
+- Aplicar un oversampling ligero duplicando algunas imágenes minoritarias.  
+- Reducir parcialmente el desbalance sin modificar las imágenes originales.
+
+Este proceso busca mejorar la estabilidad del entrenamiento del modelo base.
+
+---
+
+## 6. Extracción de Parches para Experimentos con GAN  
+**Script:** `extract_gan_patches.py`
+
+Funciones:
+
+- Extrae *patches* donde aparecen objetos minoritarios (maceta, cubeta, etc.).  
+- Facilita el análisis visual de estas clases.  
+- Prepara material auxiliar para intentos de generación sintética.
+
+Estos parches permiten evaluar la viabilidad de usar GAN como estrategia para aumentar clases minoritarias.
+
+---
+
+## 7. Intento de Generación Sintética con DCGAN  
+**Script:** `train_dcgan.py`
+
+Se entrenó una **DCGAN estándar** para generar imágenes sintéticas de clases minoritarias.
+
+Resultados:
+
+- Falta de convergencia estable.  
+- Artefactos y bajo realismo en las imágenes generadas.  
+- Dataset reducido → GAN poco robusta.
+
+Debido a estos problemas, este enfoque fue **descartado**, pero se mantiene documentado como parte del proceso experimental.
+
+---
+
+
+# 🧠 Resumen del Pipeline Nano
+
+| Paso | Descripción | Script |
+|------|-------------|--------|
+| 1 | División del dataset | `split_yolo_dataset.py` |
+| 2 | Balanceo de clases minoritarias | `balancear_train_minorias.py` |
+| 3 | Extracción de patches para GAN | `extract_gan_patches.py` |
+| 4 | Entrenamiento experimental de GAN (descartado) | `train_dcgan.py` |
+| 5 | Entrenamiento YOLOv12-Nano base | `train_yolo12.py` |
+| 6 | Validación del modelo | `val_yolo12.py` |
+| 7 | Inferencia con imágenes nuevas | `predict_yolo12.py` |
+
+---
+---
 # Requerimientos e Instalación
 
 Este proyecto utiliza Python y librerías especializadas en visión computacional y deep learning.
