@@ -4,3 +4,27 @@ Este proyecto busca detectar potenciales criaderos de mosquitos en imágenes aé
 Inicialmente se propuso entrenar una **red GAN** para generar imágenes sintéticas de la clase minoritaria; sin embargo, debido a problemas de convergencia, falta de datos y baja calidad en las imágenes generadas, el enfoque fue reemplazado por un esquema robusto de **data augmentation tradicional**, logrando mejorar el balance entre clases y evaluar su impacto en el rendimiento del modelo.
 
 Este repositorio contiene el pipeline completo para procesar los datos, aplicar aumentación, entrenar los modelos YOLO y comparar los resultados.
+
+# Objetivo del Proyecto
+
+Evaluar el impacto de la **aumentación de datos** en el rendimiento de modelos YOLO para la detección de potenciales criaderos de mosquitos en imágenes aéreas.
+
+Para ello, se entrenaron dos modelos:
+
+1. **Modelo base (sin augmentación):**  
+   Entrenado únicamente con las imágenes originales.
+
+2. **Modelo con augmentación:**  
+   Entrenado con un dataset aumentado mediante transformaciones tradicionales
+   (rotaciones, flips, escalado, jittering, etc.) que incrementan la variabilidad
+   visual y ayudan a balancear clases minoritarias.
+
+El objetivo principal es **comparar el desempeño entre ambos modelos**, evaluando mejoras en:
+
+- Precisión (Precision)  
+- Recall  
+- mAP50  
+- mAP50–95  
+- Desempeño en clases minoritarias  
+
+y demostrar cómo un esquema de augmentación bien diseñado puede mejorar la capacidad del modelo para detectar objetos relevantes en escenarios reales.
