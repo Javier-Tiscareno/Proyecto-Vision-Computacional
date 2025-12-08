@@ -1,0 +1,19 @@
+# Core scientific stack
+numpy==1.26.4
+matplotlib==3.8.2
+pillow==10.2.0
+pyyaml==6.0.1
+
+# YOLO (Ultralytics, incluye YOLOv8-v12)
+ultralytics==8.1.28
+
+# Computer vision
+opencv-python==4.9.0.80
+
+# Image augmentation
+albumentations==1.4.3
+imgaug==0.4.0
+
+# Utilities
+tqdm==4.66.1
+glob2==0.7
