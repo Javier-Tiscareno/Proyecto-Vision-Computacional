@@ -43,7 +43,8 @@ Proyecto-Vision-Computacional/
 │ ├── split_yolo_dataset.py # División de imágenes en train/val
 │ ├── train_dcgan_cubeta.py # GAN experimental (descartada)
 │ ├── train_dcgan_maceta.py # GAN experimental (descartada)
-│ └── (agregar scripts finales de entrenamiento YOLO si aplica)
-│
+│ ├── train_yolo12s.py # Modelo base de YOLO
+│ ├── copy_paste.py # Copy-Paste Augmentación
+| └── train_yolo12_optimized.py # Modeo YOLO con augmentacion de clases minoritarias
 └── README.md
 ```
