@@ -28,3 +28,22 @@ El objetivo principal es **comparar el desempeño entre ambos modelos**, evaluan
 - Desempeño en clases minoritarias  
 
 y demostrar cómo un esquema de augmentación bien diseñado puede mejorar la capacidad del modelo para detectar objetos relevantes en escenarios reales.
+
+---
+
+#  Estructura del Repositorio
+```bash
+Proyecto-Vision-Computacional/
+│
+├── Yolo12-Small/ # Pipeline principal del modelo YOLOv12-Small
+│ ├── data.yaml # Configuración del dataset YOLO
+│ ├── yolo12s.pt # Pesos finales del modelo entrenado
+│ ├── extract_objects.py # Extracción de objetos recortados
+│ ├── extract_patches_for_gan.py # Preparación de parches para GAN
+│ ├── split_yolo_dataset.py # División de imágenes en train/val
+│ ├── train_dcgan_cubeta.py # GAN experimental (descartada)
+│ ├── train_dcgan_maceta.py # GAN experimental (descartada)
+│ └── (agregar scripts finales de entrenamiento YOLO si aplica)
+│
+└── README.md
+```
