@@ -52,7 +52,20 @@ Proyecto-Vision-Computacional/
 │ ├── train_dcgan_maceta.py # GAN experimental (descartada)
 │ ├── train_yolo12s.py # Modelo base de YOLO
 │ ├── copy_paste.py # Copy-Paste Augmentación
-| └── train_yolo12_optimized.py # Modeo YOLO con augmentacion de clases minoritarias
+│ └── train_yolo12_optimized.py # Modeo YOLO con augmentacion de clases minoritarias
+├── Yolo12-Nano/ # Pipeline principal del modelo YOLOv12-nano
+│ ├── split_yolo_dataset.py # División de imágenes en train/val
+│ ├── remap_labels_5clases_a_4 # Limpieza de la base
+│ ├── data.yaml # Configuración del dataset YOLO
+│ ├── yolo12n.pt # Pesos finales del modelo entrenado
+│ ├── train_yolo12.py # Modelo base de YOLO
+│ ├── val_yolo12.py # Validacion del moodelo
+│ ├── predict_yolo12.py # Inferencias del modelo
+│ ├── extract_gan_patches.py # Preparación de parches para GAN
+│ ├── train_dcgan.py # Entrenamiento de la red Gan (descartada)
+│ ├── pruebas_dcgan/py # Pruebas cubeta/ maceta
+│ ├── balancear_train_minorías.py # GAN experimental (descartada)
+
 └── README.md
 ```
 #  Pipeline Completo del Proyecto
