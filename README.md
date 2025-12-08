@@ -245,7 +245,7 @@ Entrenamiento directo sobre el dataset original .
 Configuración:
 
 - Arquitectura: **YOLOv12-Nano**, optimizada para velocidad y bajo consumo.  
-- Dataset definido en `data.yaml`.  
+- Experimento definido en `data.yaml`.  
 - Hiperparámetros estándar.
 - Pesos del modelo base Nano `yolo12n.pt` (incluido en este repositorio)
 
@@ -272,7 +272,7 @@ Esto sirve como línea base para comparar con modelos futuros o variantes optimi
 
 Permite:
 
-- Cargar el modelo entrenado (`yolo12n.pt`).  
+- Cargar el modelo entrenado.  
 - Ejecutar detección sobre imágenes nuevos.  
 - Guardar y visualizar predicciones con bounding boxes.
 
@@ -290,7 +290,9 @@ Propósito:
 
 Este proceso busca mejorar la estabilidad del entrenamiento del modelo base.
 
----
+Para este conjunto de datos aumentado, repetir del paso 2,3,4.
+
+
 
 ## 6. Extracción de Parches para Experimentos con GAN  
 **Script:** `extract_gan_patches.py`
@@ -303,11 +305,11 @@ Funciones:
 
 Estos parches permiten evaluar la viabilidad de usar GAN como estrategia para aumentar clases minoritarias.
 
----
+
 
 ## 7. Intento de Generación Sintética con DCGAN  
 **Script:** `train_dcgan.py`
-
+**Script:** `train_dcgan.py`
 Se entrenó una **DCGAN estándar** para generar imágenes sintéticas de clases minoritarias.
 
 Resultados:
@@ -318,7 +320,6 @@ Resultados:
 
 Debido a estos problemas, este enfoque fue **descartado**, pero se mantiene documentado como parte del proceso experimental.
 
----
 
 
 # 🧠 Resumen del Pipeline Nano
