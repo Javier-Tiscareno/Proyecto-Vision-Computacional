@@ -61,7 +61,7 @@ Proyecto-Vision-Computacional/
 │ ├── predict_yolo12.py # Inferencias del modelo
 │ ├── extract_gan_patches.py # Preparación de parches para GAN
 │ ├── train_dcgan.py # Entrenamiento de la red Gan (descartada)
-│ ├── pruebas_dcgan/py # Pruebas cubeta/ maceta
+│ ├── pruebas_dcgan.py # Pruebas cubeta/ maceta
 │ ├── balancear_train_minorías.py # GAN experimental (descartada)
 
 └── README.md
@@ -309,7 +309,7 @@ Estos parches permiten evaluar la viabilidad de usar GAN como estrategia para au
 
 ## 7. Intento de Generación Sintética con DCGAN  
 **Script:** `train_dcgan.py`
-**Script:** `train_dcgan.py`
+**Script:** `pruebas_dcgan.py`
 Se entrenó una **DCGAN estándar** para generar imágenes sintéticas de clases minoritarias.
 
 Resultados:
@@ -322,7 +322,7 @@ Debido a estos problemas, este enfoque fue **descartado**, pero se mantiene docu
 
 
 
-# 🧠 Resumen del Pipeline Nano
+#  Resumen del Pipeline Nano
 
 | Paso | Descripción | Script |
 |------|-------------|--------|
