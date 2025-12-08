@@ -29,6 +29,13 @@ El objetivo principal es **comparar el desempeño entre ambos modelos**, evaluan
 
 y demostrar cómo un esquema de augmentación bien diseñado puede mejorar la capacidad del modelo para detectar objetos relevantes en escenarios reales.
 
+# Base de datos
+
+Por cuestiones de espacio, la base de datos no se subió directamente a este repositorio. Sin embargo, puede descargarse a través del siguiente enlace:
+
+[Descargar la base de datos](https://drive.google.com/drive/folders/1auuUKFzhZMWLvLjpFNWs0qYnpXAsg5pS?usp=sharing)
+
+
 ---
 
 #  Estructura del Repositorio
