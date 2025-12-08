@@ -36,8 +36,6 @@ Por cuestiones de espacio, la base de datos no se subió directamente a este rep
 [Descargar la base de datos](https://drive.google.com/drive/folders/1auuUKFzhZMWLvLjpFNWs0qYnpXAsg5pS?usp=sharing)
 
 
----
-
 #  Estructura del Repositorio
 ```bash
 Proyecto-Vision-Computacional/
@@ -68,7 +66,9 @@ Proyecto-Vision-Computacional/
 
 └── README.md
 ```
-#  Pipeline Completo del Proyecto
+---
+---
+#  Pipeline Completo del Proyecto (Versión Small )
 
 El flujo de trabajo del proyecto se diseñó para comparar dos enfoques de entrenamiento:
 
@@ -77,7 +77,7 @@ El flujo de trabajo del proyecto se diseñó para comparar dos enfoques de entre
 
 A continuación se describe el pipeline completo, organizado según los scripts dentro del repositorio.
 
----
+
 
 ## 1. Organización y División del Dataset  
 **Script:** `split_yolo_dataset.py`
@@ -91,7 +91,7 @@ A continuación se describe el pipeline completo, organizado según los scripts 
 
 Este paso prepara el dataset base para ambos modelos (con y sin augmentación).
 
----
+
 
 ## 2. Extracción de Objetos para Análisis y Pruebas  
 **Scripts:**  
@@ -106,7 +106,7 @@ Propósitos:
 
 Este paso **no afecta directamente al entrenamiento**, pero permitió estudiar el desbalance de clases.
 
----
+
 
 ## 3. Intento de Generación Sintética con GAN (Descartado)  
 **Scripts:**  
@@ -128,7 +128,7 @@ Problemas encontrados:
 
 Por ello, este enfoque fue **descartado**, manteniendo los scripts como evidencia experimental.
 
----
+
 
 ## 4. Entrenamiento del Modelo Base YOLOv12-Small  
 **Script:** `train_yolo12s.py`
@@ -147,7 +147,7 @@ Salida principal:
 
 - `yolo12s.pt` → pesos del modelo base
 
----
+
 
 ## 5. Estrategias de Aumentación para Corregir el Desbalance
 Se incluye una estrategia de augmentación específica para incrementar la representatividad de:
@@ -181,7 +181,7 @@ Este modelo es evaluado contra el modelo base para medir la mejora en:
 - mAP50–95  
 - detección de clases minoritarias
 
----
+
 
 ## 6. Evaluación Final de Modelos  
 Ambos modelos (base y optimizado) se evalúan con el mismo conjunto de validación.
@@ -208,9 +208,10 @@ Este paso permite cuantificar el impacto de la aumentación en clases minoritari
 6. **Modelo YOLO optimizado con augmentación** → `train_yolo12_optimized.py`  
 7. **Evaluación comparativa** → métricas de validación YOLO  
 
----
-
 Este pipeline refleja fielmente la estructura y metodología del proyecto, destacando la comparación entre modelos con y sin aumentación.
+
+---
+---
 
 # Requerimientos e Instalación
 
