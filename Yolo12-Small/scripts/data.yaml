@@ -1,10 +1,25 @@
+# ================================================================
+# Archivo de configuración de dataset para YOLOv12-Small
+# Autor: Javier Alvarado
+# Descripción:
+#   Define las rutas de entrenamiento y validación, así como la
+#   cantidad de clases (nc) y el nombre de cada una.
+#   Este archivo es utilizado por YOLO durante el entrenamiento.
+# ================================================================
+
+# Ruta absoluta o relativa al directorio donde están las imágenes de entrenamiento
 train: /home/javier/Javier_Alvarado_Proyecto/dataset/images/train
+
+# Ruta a las imágenes de validación
 val: /home/javier/Javier_Alvarado_Proyecto/dataset/images/val
 
+# Número total de clases en el dataset
 nc: 5
-names: 
-  0: charco
-  1: cubeta
-  2: llanta
-  3: tinaco
-  4: maceta
+
+# Nombres de las clases (el índice debe coincidir con el usado en las etiquetas .txt)
+names:
+  0: charco      # Acumulaciones de agua en el suelo (potenciales criaderos)
+  1: cubeta      # Recipientes pequeños donde puede acumularse agua
+  2: llanta      # Llantas tiradas que pueden captar agua
+  3: tinaco      # Contenedores de agua comunes en techos
+  4: maceta      # Macetas donde puede quedar agua estancada
