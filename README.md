@@ -219,11 +219,4 @@ Si su entorno utiliza drivers más antiguos:
 
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
 
-✔ Verificar que PyTorch detecta la GPU
-import torch
-print(torch.cuda.is_available())
-print(torch.cuda.get_device_name(0))
-
-
-Si ambos comandos devuelven información válida, su entorno está correctamente configurado para entrenamiento acelerado.
 
