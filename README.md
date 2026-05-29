@@ -184,7 +184,8 @@ Este modelo es evaluado contra el modelo base para medir la mejora en:
 
 
 ## 6. Evaluación Final de Modelos  
-Ambos modelos (base y optimizado) se evalúan con el mismo conjunto de validación.
+Ambos modelos (base y optimizado) fueron evaluados utilizando el mismo esquema experimental, permitiendo comparar el impacto de las estrategias de aumentación sobre el desempeño de detección.
+
 
 Métricas principales:
 
@@ -192,10 +193,32 @@ Métricas principales:
 - Recall  
 - mAP@50  
 - mAP@50–95  
-- Análisis específico por clase  
+- Desempeño por clase 
 
-Este paso permite cuantificar el impacto de la aumentación en clases minoritarias.
+Estas métricas se utilizaron para comparar la capacidad de detección de ambos modelos y analizar el efecto de la aumentación de datos sobre las clases minoritarias.
 
+## 7. Inferencia sobre Vuelos No Vistos
+**Script:** `predict_examples.py`
+
+Con el objetivo de evaluar la capacidad de generalización del modelo, se realizaron inferencias sobre imágenes provenientes de vuelos distintos a los utilizados durante el entrenamiento y validación.
+
+### Procedimiento
+
+1. Cargar los pesos finales del modelo (`best.pt`).
+2. Ejecutar inferencia sobre imágenes de nuevos vuelos.
+3. Generar visualizaciones con las detecciones realizadas.
+4. Analizar cualitativamente el comportamiento del modelo en escenarios no observados previamente.
+
+### Salida
+
+results/predictions/
+
+├── frame0.jpg
+├── frame1.jpg
+├── frame2.jpg
+├── frame3.jpg
+└── ...
+       
 ---
 
 #  Resumen del Pipeline
@@ -206,7 +229,8 @@ Este paso permite cuantificar el impacto de la aumentación en clases minoritari
 4. **Entrenamiento del modelo base** → `train_yolo12s.py`  
 5. **Aumentación de datos** → `copy_paste.py`  
 6. **Modelo YOLO optimizado con augmentación** → `train_yolo12_optimized.py`  
-7. **Evaluación comparativa** → métricas de validación YOLO  
+7. **Evaluación comparativa** → métricas de validación YOLO
+8. **Inferencia sobre imagenes nuevas** → `predict_examples.py` 
 
 Este pipeline refleja fielmente la estructura y metodología del proyecto, destacando la comparación entre modelos con y sin aumentación.
 
